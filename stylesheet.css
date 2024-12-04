@@ -1,0 +1,105 @@
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+.main_page {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr 1fr 8fr;
+    grid-template-areas: 
+    "sidebar sb_and_pf"
+    "sidebar create_content"
+    "sidebar content" ;
+}
+
+.sidebar {
+    background-color: yellow;
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+#dashboard {
+    border: 1px solid black;
+    font-size: 1.25rem;
+    height: 2.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.main_widgets {
+    margin-bottom: 100px;
+}
+
+.widgets {
+    background-color: beige;
+    border: 1px solid black;
+}
+
+.searchbar_and_profile {
+    background-color: green;
+    grid-area: sb_and_pf;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+}
+
+#searchbar {
+    background-color: aliceblue;
+    border: 1px solid black;
+}
+
+#profile {
+    background-color: aliceblue;
+    border: 1px solid black;
+}
+
+.create_content {
+    background-color: aqua;
+    grid-area: create_content;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+}
+
+#greetings {
+    background-color: aquamarine;
+    border: 1px solid red;
+}
+
+#create {
+    background-color: aquamarine;
+    border: 1px solid red;
+}
+
+.content {
+    background-color: blueviolet;
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "projects announcements"
+    "projects trending";
+}
+
+#projects {
+    grid-area: projects;
+    background-color:antiquewhite;
+    border: 1px solid black;
+}
+
+#announcements {
+    grid-area: announcements;
+    background-color:antiquewhite;
+    border: 1px solid black;
+}
+
+#trending {
+    grid-area: trending;
+    background-color:antiquewhite;
+    border: 1px solid black;
+}
+
