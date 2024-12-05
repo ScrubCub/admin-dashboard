@@ -3,15 +3,41 @@ body, html {
     width: 100%;
 }
 
+button {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    border-spacing: 0;
+    color: #26589F;
+    font-weight: normal;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+}
+
+input[type="text"] {
+    all: unset;
+}
+
+@font-face {
+    font-family: caviarDreams;
+    src: url(./CaviarDreams.ttf) format("truetype");
+    font-weight: normal;
+}
+
 .main_page {
-    height: 100%;
-    width: 80%;
+    padding: 1rem 0rem;
+    font-family: caviarDreams;
+    height: 170vh;
+    width: 85vw;
     position: relative;
-    left: 10%;
-    right: 10%;
+    left: 7.5%;
+    right: 7.5%;
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: minmax(0, 1fr) 1fr 9fr;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: minmax(60px, 1fr) minmax(85px, 1fr) 12fr;
     grid-template-areas: 
     "sidebar sb_and_pf"
     "sidebar create_content"
@@ -19,31 +45,54 @@ body, html {
 }
 
 .sidebar {
-    background-color: #c084fc;
+    background-color: #a855f7;
     grid-area: sidebar;
     display: flex;
     flex-direction: column;
     justify-content: start;
+    box-shadow: 2px 2px 5px 1px black;
 }
 
 #dashboard {
-    border: 1px solid black;
     font-size: 1.25rem;
+    font-weight: bolder;
     height: 2.5rem;
-    width: 100%;
-    text-align: center;
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    text-align: start;
 }
 
 .main_widgets {
     margin-bottom: 100px;
 }
 
+.main_widgets, .settings_widgets {
+    display: flex;
+    flex-direction: column;
+    /* align-items: stretch; */
+}
+
 .widgets {
-    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: start;
+    padding-left: 1rem;
+}
+
+.widgets > img {
+    height: 25px;
+    aspect-ratio: 1;
+}
+
+.widgets > p {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 .searchbar_and_profile {
-    background-color: #f3e8ff;
+    padding-top: 0.5rem;
+    background-color: #d8b4fe;
     grid-area: sb_and_pf;
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -63,6 +112,7 @@ body, html {
 }
 
 #searchbar input {
+    border: 1px solid gray;
     border-radius: 10px;
     box-shadow: 5px 5px 5px -3px;
     background-color: #e9d5ff;
@@ -78,11 +128,18 @@ body, html {
 }
 
 #profile {
+    font-weight: bolder;
     display: grid;
     grid-template-columns: 0.75fr 1.5fr 6fr;
     gap: 10px;
     align-items: center;
     justify-content: end;
+    margin-left: 10px;
+}
+
+#notif_icon {
+    min-height: 25px;
+    aspect-ratio: 1;
 }
 
 #profile_picture {
@@ -92,73 +149,194 @@ body, html {
 }
 
 .create_content {
-    background-color: #f3e8ff;
+    background-color: #d8b4fe;
     grid-area: create_content;
     display: grid;
     grid-template-columns: 1.5fr 1fr;
 }
 
 #greetings {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#greetings img {
+    padding-left: 3rem;
+    height: 75px;
+    aspect-ratio: 1;
+}
+
+#greetings div {
+    font-weight: bolder;
 }
 
 #create {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#create button {
+    color: white;
+    background-color: #3b0764;
+    padding: 0.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0px 0px 2px 0px black;
+}
+
+#create button:hover {
+    cursor: pointer;
+}
+
+#create button:active {
+    box-shadow: 0px 0px 5px 0px black;
 }
 
 .content {
-    background-color: blueviolet;
+    padding-bottom: 1rem;
+    background-color: #e9d5ff;
     grid-area: content;
     display: grid;
-    grid-template-columns: 2.5fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 2.5fr 1fr;
     grid-template-areas: 
     "projects announcements"
-    "projects trending";
+    "projects friends";
 }
 
 #projects {
+    padding: 0rem 1rem;
     grid-area: projects;
-    background-color:antiquewhite;
-    border: 1px solid black;
-
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template-rows: 35px;
+    grid-template-rows: 60px;
+    grid-auto-rows: minmax(200px, 1fr);
+    gap: 0.5rem;
 }
 
-#projects > :first-child {
+.project_title {
+    font-size: 1.25rem;
+    padding: 0.25rem 0.5rem;
+    display: flex;
+    align-items: end;
+    justify-content: start;
     grid-column: 1/-1;
 }
 
+.project_title p {
+    margin: 0;
+}
+
+
+
 .project_box {
-    background-color: rebeccapurple;
     border: 1px solid black;
+    background-color: antiquewhite;
+    box-shadow: 1px 1px 10px 0px black;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.project_box .title {
+    font-weight: bolder;
+}
+
+.project_box p {
+    margin: 0.5rem 0;
+}
+
+.project_box > div {
+    align-self: end;
+    display: flex;
+    gap: 25px;
+    justify-content: end;
+    align-items: center;
+}
+
+.project_box img {
+    height: 25px;
+    aspect-ratio: 1;
 }
 
 #announcements {
     grid-area: announcements;
-    background-color:antiquewhite;
-    border: 1px solid black;
+    background-color:#e9d5ff;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
 
     display: grid;
-    grid-template-rows: repeat(3, minmax(50px, 1fr));
+    grid-template-rows: 40px;
+    grid-auto-rows: minmax(80px, 1fr);
+    gap: 0.5rem;
+}
+
+#announcements > :first-child {
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
 
 .announcement_box {
-    background-color: azure;
     border: 1px solid black;
+    font-size: 0.75rem;
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 10px 2px grey;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 0.25rem;
 }
 
-#trending {
-    grid-area: trending;
-    background-color:antiquewhite;
-    border: 1px solid black;
+.announcement_box :first-child {
+    font-weight: bolder;
+}
+
+.announcement_box p {
+    margin: 0;
+}
+
+#friends {
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    grid-area: friends;
+    background-color: #e9d5ff;
 
     display: grid;
-    grid-template-rows: repeat(4, minmax(50px, 1fr));
+    grid-template-rows: 1.5rem;
+    grid-auto-rows: minmax(50px, 1fr);
+    gap: 0.25rem;
 }
 
-.trending_box {
-    background-color:antiquewhite;
-    border: 1px solid black;
+#friends p {
+    margin: 0;
+}
+
+#friends > :first-child {
+    font-size: 1.25rem;
+    display: flex;
+    align-items: end;
+}
+
+.friends_box {
+    font-size: 0.75rem;
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 10px 2px grey;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.25rem;
+}
+
+.friends_box img {
+    height: 1.5rem;
+    aspect-ratio: 1;
 }
 
